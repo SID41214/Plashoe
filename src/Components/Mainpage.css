@@ -1,0 +1,56 @@
+.mainpage-img {
+    padding: 40px;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+.mainpage-shoe {
+    position: relative; /* Make the container a positioning context */
+  }
+  
+  .mainpage-textpar {
+    position: absolute; /* Position the text absolutely */
+    top: 30%; /* Center it vertically */
+    left: 10%; /* Center it horizontally */
+   color:white;
+   font-size: xx-large;
+    padding: 20px; /* Add some padding for readability */
+   
+  }
+  .mainpage-textbox{
+    position: absolute; /* Position the text absolutely */
+    top: 52%; /* Center it vertically */
+    left: 10%; /* Center it horizontally */
+    color: white;
+   font-size:x-large;
+    padding: 20px;
+  }
+
+
+  .mainpage-textbox-shop{
+    display: flex;
+    justify-content:space-between;
+    padding: 10px;
+    color:black;
+    text-decoration: none;
+
+  }
+  .mainpage-shopmen-span{
+    text-align: center;
+    width: 30%;
+    height: 70%;
+    background-color: whitesmoke;
+  }
+  
+  .mainpage-shopwomen-span{
+    text-align: center;
+    width: 30%;
+    height: 70%;
+    background-color:whitesmoke;
+  }
+  .shop-link-style{
+    text-decoration: none;
+    color: black;
+
+ }
+    

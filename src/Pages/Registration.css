@@ -1,0 +1,80 @@
+
+  h1{
+    text-align: center;
+  }
+  label{
+    font-weight: 600;
+}
+  .container {
+    background-color:   #808080;
+    display: flex ;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: auto;
+    
+  }
+  .container > form {
+    width: 40%;
+    padding: 20px;
+    border-radius: 5px;
+    background:rgba(0, 0, 0, 0.947);
+    color: white;
+  }
+  pre {
+    width: 70%;
+    color:black;
+    font-size: larger;
+  }
+  
+  .span-btn{
+    background:black ;
+    color: Gainsboro;
+    width: 150px;
+   font: 600;
+   font-weight: 800;
+   height: 40px;
+   border: solid;
+   border-width: 2px 4px;
+   border-radius: 40px;
+  }
+  .container p {
+    color: red;
+  }
+  input{
+    width: 100%;
+  }
+  .field input{
+    text-align: center;
+    background-color:  Gainsboro;
+    font: 600;
+    font-weight: 800;
+    height: 40px;
+    border: solid;
+    border-width: 2px 4px;
+    border-radius: 40px;
+
+  }
+.container button:hover{
+  background-color:white;
+  color:black;
+}
+.link-span{
+ color: white;
+  text-decoration: none;
+  border:solid ;
+  border-width: 2px 4px;
+  border-radius: 40px;
+  margin-left: 5px;
+  width: 80px;
+  text-align: center;
+                
+              
+}
+.link-span:hover{
+  background-color: white;
+  color: black;
+
+}

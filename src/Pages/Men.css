@@ -1,0 +1,65 @@
+.men-container{
+    padding: 20px;
+}
+.men-men{
+    color: #6e7051;
+    font-size: xx-large;
+    font-weight: 600;
+    display: flex;
+    justify-content: flex-start;
+}
+.men-navbar-left{
+    background-color: #6e7051;
+    width:250px;
+    
+}
+.men-navbar-left :hover{
+    background-color: #262b2c;
+    color: #979a9b;
+}
+.men-navbar{
+    display: flex;
+    justify-content: space-between;
+}
+option{
+    height: 100%;
+}
+.men-card-container{
+    margin-top: 100px;
+}
+.men-card:hover .men-card-button {
+    background-color: black;
+    color: white;
+    height: 25px;
+}
+.men-card {
+    overflow: hidden;
+}
+
+.men-card:hover .men-card-img {
+    transform: scale(1.05); 
+}
+.men-card-img{
+    width: 367px;
+    height: 367px;
+    transition: transform 0.3s ease; 
+}
+.men-card-button{
+    width: 100%;
+    color: white;
+    border: none;
+    font-size: larger;
+    font-weight: 600;
+    border-color: white;
+
+
+}
+.men-card:hover .men-card-button{
+    transform: scale(1.05); 
+
+
+    
+}
+.men-card-button:hover .add-to-cart-text {
+    color: green;
+  }
