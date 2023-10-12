@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState,useCallback} from "react";
 import DensityMediumIcon from "@mui/icons-material/DensityMedium";
 import WindowIcon from "@mui/icons-material/Window";
 import ViewListIcon from "@mui/icons-material/ViewList";
@@ -26,16 +26,28 @@ const Women = () => {
 
   //   filterShoeData();
   // }, [searchTerm, filterwomen]);
-  useEffect(() => {
-    filterShoeData();
-  }, [searchTerm, ]);
+  
+  // useEffect(() => {
+  //   filterShoeData();
+  // }, [searchTerm,filterShoeData ]);
 
-  function filterShoeData() {
+  // function filterShoeData() {
+  //   const result = filterwomen.filter((item) =>
+  //     item.name.toLowerCase().includes(searchTerm.toLowerCase())
+  //   );
+  //   setDuplicateData(result);
+  // }
+  const filterShoeData = useCallback(() => {
     const result = filterwomen.filter((item) =>
       item.name.toLowerCase().includes(searchTerm.toLowerCase())
     );
     setDuplicateData(result);
-  }
+  }, [searchTerm, filterwomen]);
+  
+  useEffect(() => {
+    filterShoeData();
+  }, [filterShoeData]);
+  
 
   const { carddata, Setcarddata } = useContext(MyContext);
   const Addtocart = (itemToAdd) => {

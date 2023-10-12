@@ -26,23 +26,39 @@ const Decrement = styled.button`
 const Remove = styled.button``;
 
 const CartItem = ({ name, image, price, handleRemoveItem, id }) => {
-  const fixedPrice = useMemo(() => price, []);
+  const fixedPrice = useMemo(() => price, [price]);
   const { carddata, Setcarddata } = useContext(MyContext);
 
   const [count, setCount] = useState(1);
 
-  function UpadateData(id) {
-    const updatedCart = carddata.map((item) =>
-      Number(item.id).toString() === Number(id).toString()
-        ? { ...item, price: count * fixedPrice }
-        : item
-    );
+  // function UpadateData(id) {
+  //   const updatedCart = carddata.map((item) =>
+  //     Number(item.id).toString() === Number(id).toString()
+  //       ? { ...item, price: count * fixedPrice }
+  //       : item
+  //   );
 
-    Setcarddata(updatedCart);
-  }
+  //   Setcarddata(updatedCart);
+  // }
+  // useEffect(() => {
+  //   UpadateData(id);
+  // }, []);
   useEffect(() => {
+    function UpadateData(id) {
+      const updatedCart = carddata.map((item) =>
+        Number(item.id).toString() === Number(id).toString()
+          ? { ...item, price: count * fixedPrice }
+          : item
+      );
+  
+      Setcarddata(updatedCart);
+    }
+    
     UpadateData(id);
-  }, [count]);
+  
+  }, [carddata, Setcarddata, count, fixedPrice, id]);
+  
+
   return (
     <Container>
       <Img src={image} />

@@ -53,4 +53,11 @@
     color: black;
 
  }
-    
+ .mainpage-shopmen-span:hover{
+  background-color: black;
+  color:white;
+ }
+ .mainpage-shopwomen-span:hover{
+  background-color: black;
+  color:white; 
+ }
