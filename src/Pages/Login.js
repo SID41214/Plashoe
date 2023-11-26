@@ -6,7 +6,7 @@ import { MyContext } from "../App";
 const Login = () => {
   const navigate = useNavigate();
   const { userData, setIslogin } = useContext(MyContext);
-  const initialValues = { username: "", email: "", password: "" };
+  const initialValues = { username: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const filterdata = userData.filter(
     (item) => item.username === formValues.username
@@ -36,32 +36,29 @@ const Login = () => {
     <div className="login-container">
       <form className="login-form">
         <h1>Login</h1>
-        {/* <label>Username:</label><br/> */}
         <input
           type="text"
           name="username"
           value={formValues.username}
           onChange={handleChange}
-          placeholder="Enter Username"
-        />{" "}
-        <br />
-        {/* <label>Password:</label><br/> */}
-        <br />
+          placeholder="Username"
+        />
         <input
           type="password"
           name="password"
           value={formValues.password}
           onChange={handleChange}
-          placeholder="Enter Password"
+          placeholder="Password"
         />
-        <br />
-        <br />
-        <div style={{ display: "flex", justifyContent: "center" }}>
+        <Link to={"/register"} className="register-link">
+          Create a New Account ?
+        </Link>
+        <div className="login-buttons">
           <span className="login-span-btn" onClick={() => handleClic()}>
             Login
           </span>
-          <Link to="/adminlogin">
-            <button>ADMIN</button>
+          <Link to="/adminlogin" className="admin-link">
+            Admin
           </Link>
         </div>
       </form>

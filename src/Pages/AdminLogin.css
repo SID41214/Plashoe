@@ -1,0 +1,48 @@
+.admin-login-container {
+    background-image: url("https://img.freepik.com/free-photo/still-life-say-no-fast-fashion_23-2149669605.jpg?w=1060&t=st=1700979669~exp=1700980269~hmac=7b13f0152e2b70b0e49c34e2da5e44387877367e1f15ecb580dbc366d8a89cbe");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .admin-login-form {
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    text-align: center;
+  }
+  
+  .admin-login-form input {
+    text-align: center;
+    background-color: #f0f0f0;
+    font-weight: 600;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    margin-bottom: 15px;
+  }
+  
+  .admin-login-buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .admin-login-span-btn {
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    background-color: #333;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .admin-login-span-btn:hover {
+    background-color: white;
+    color: #333;
+  }
+  

@@ -4,6 +4,9 @@ import { MyContext } from "../App";
 import LockIcon from "@mui/icons-material/Lock";
 const Checkout = () => {
   const { total } = useContext(MyContext);
+  const handlebutton=(e)=>{
+    e.preventDefault();
+  };
 
   return (
     <div>
@@ -76,7 +79,7 @@ const Checkout = () => {
             <br />
             <br />
             <div style={{ display: "flex", justifyContent: "center" }}>
-              <button
+              <button onClick={handlebutton}
                 style={{
                   background: "green",
                   color: "white",

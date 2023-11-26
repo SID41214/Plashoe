@@ -1,6 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import "./AdminLogin.css"
 
 const AdminLogin = () => {
   const navigate = useNavigate();
@@ -13,10 +13,10 @@ const AdminLogin = () => {
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
   };
+
   const adminClick = () => {
     if (!formValues.username || !formValues.password) {
       alert("Please Enter Valid Data");
-      // navigate("/adminlogin")
     } else {
       if (
         formValues.username === Admindata.username &&
@@ -29,28 +29,18 @@ const AdminLogin = () => {
       }
     }
   };
+
   return (
-    <div
-      style={{
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        minHeight: "100vh",
-        background: " #808080",
-      }}
-    >
-      <form className="login-form">
-        <h1> Admin Login</h1>
-        {/* <label>Username:</label><br/> */}
+    <div className="admin-login-container">
+      <form className="admin-login-form">
+        <h1>Admin Login</h1>
         <input
           type="text"
           name="username"
           value={formValues.username}
           onChange={handleChange}
           placeholder="Enter Username"
-        />{" "}
-        <br />
-        {/* <label>Password:</label><br/> */}
+        />
         <br />
         <input
           type="password"
@@ -60,28 +50,9 @@ const AdminLogin = () => {
           placeholder="Enter Password"
         />
         <br />
-        <br />
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            background: "black",
-            color: "Gainsboro",
-            width: "150px",
-            font: "600",
-            fontWeight: "800",
-            height: "40px",
-            border: "solid",
-            borderWidth: "2px 4px ",
-            borderRadius: "40px",
-            textAlign: "center",
-            marginLeft: "130px",
-          }}
-        >
+        <div className="admin-login-buttons">
           <span
-            className="login-span-btn"
-            style={{ cursor: "pointer" }}
+            className="admin-login-span-btn"
             onClick={() => adminClick()}
           >
             Login

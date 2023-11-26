@@ -1,50 +1,50 @@
-import React, { useState, useContext } from "react"; //useEffect
+import React, { useState, useContext } from "react";
 import "./Registration.css";
-import Login from "./Login";
-import { Link } from "react-router-dom"; //useNavigate
+// import Login from "./Login";
+import { Link, useNavigate } from "react-router-dom";
 import { MyContext } from "../App";
-// import { type } from "@testing-library/user-event/dist/type";
 
 const Registration = () => {
-  const { setUserdata } = useContext(MyContext); //userdata
+  const navigate = useNavigate();
+  const { setUserdata } = useContext(MyContext);
   const initialValues = { username: "", email: "", password: "" };
   const [formValues, setFormValues] = useState(initialValues);
   const [formErrors, setFormErrors] = useState({});
   const [isSubmit, setIsSubmit] = useState(false);
-  // const Navigate=useNavigate();
+
   const handleChange = (e) => {
-    // console.log(e.target);
     const { name, value } = e.target;
     setFormValues({ ...formValues, [name]: value });
-
-    // console.log(formValues);
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    setFormErrors(validate(formValues));
+    const errors = validate(formValues);
+    setFormErrors(errors);
     setIsSubmit(true);
-  };
-  const handleClick = () => {
-    setUserdata((prev) => [
-      ...prev,
-      {
-        username: formValues.username,
-        email: formValues.email,
-        password: formValues.password,
-      },
-    ]);
+
+    if (Object.keys(errors).length === 0) {
+      setUserdata((prev) => [
+        ...prev,
+        {
+          username: formValues.username,
+          email: formValues.email,
+          password: formValues.password,
+        },
+      ]);
+
+      setFormValues(initialValues);
+
+      setTimeout(() => {
+        alert("Registered Successfully -- Login To Continue");
+        navigate("/login");
+      }, 100);
+    }
   };
 
-  // useEffect(() => {
-  //   if (Object.keys(formErrors).length === 0 && isSubmit) {
-  //     console.log(formValues);
-  //     // Navigate("/login")
-
-  //   }
-  // }, [formErrors]);
   const validate = (values) => {
     const errors = {};
-    // const regex=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
     if (!values.username) {
       errors.username = (
         <span
@@ -55,7 +55,7 @@ const Registration = () => {
             justifyContent: "center",
           }}
         >
-          Username is required !
+          Username is required!
         </span>
       );
     }
@@ -69,7 +69,7 @@ const Registration = () => {
             justifyContent: "center",
           }}
         >
-          Email is required !
+          Email is required!
         </span>
       );
     }
@@ -83,17 +83,12 @@ const Registration = () => {
             justifyContent: "center",
           }}
         >
-          Password is required !
+          Password is required!
         </span>
       );
     }
     return errors;
   };
-  //  function Submit(){
-  //     if(name === ""){
-  //         alert("input name")
-  //     }
-  //  }
 
   return (
     <div className="container">
@@ -113,18 +108,15 @@ const Registration = () => {
             marginBottom: "10px",
           }}
         >
-          Signed in Successfull -- Login To Continue
+          Registered Successfully -- Login To Continue
         </div>
-      ) : null
-      // <pre>{JSON.stringify(formValues, undefined, 2)}</pre>
-      }
+      ) : null}
 
       <form onSubmit={handleSubmit}>
         <h1>Registration Form</h1>
         <div className="ui-divider"></div>
         <div className="ui-form">
           <div className="field">
-            {/* <label>Username:</label> */}
             <br />
             <input
               type="text"
@@ -136,7 +128,6 @@ const Registration = () => {
           </div>
           <p>{formErrors.username}</p>
           <div className="field">
-            {/* <label>Email:</label> */}
             <br />
             <input
               type="email"
@@ -149,7 +140,6 @@ const Registration = () => {
           <p>{formErrors.email}</p>
 
           <div className="field">
-            {/* <label>Password:</label> */}
             <br />
             <input
               type="password"
@@ -167,7 +157,6 @@ const Registration = () => {
               className="span-btn"
               type="submit"
               style={{ cursor: "pointer" }}
-              onClick={() => handleClick()}
             >
               Register
             </button>
@@ -181,11 +170,7 @@ const Registration = () => {
             }}
           >
             Already Have an Account ?{" "}
-            <Link
-              to="/login"
-              element={<Login />} className="link-span"
-           
-            >
+            <Link to="/login" className="link-span">
               Login
             </Link>{" "}
           </span>

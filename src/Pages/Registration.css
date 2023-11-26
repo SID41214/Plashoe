@@ -6,22 +6,28 @@
     font-weight: 600;
 }
   .container {
-    background-color:   #808080;
-    display: flex ;
+    
+    background-image: url("https://assets-global.website-files.com/622488277ab5ee818d179d9f/64470ce140beed1a68a4bec7_626079f8351eb056e307319e_amberjack_r1_MSP_4296-scaled.jpg");
+    background-size: cover;
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 100vw;
-    margin: auto;
     
   }
   .container > form {
-    width: 40%;
+    /* width: 40%;
     padding: 20px;
     border-radius: 5px;
     background:rgba(0, 0, 0, 0.947);
+    color: white; */
+    width: 30%;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.7);
     color: white;
+    text-align: center;
   }
   pre {
     width: 70%;

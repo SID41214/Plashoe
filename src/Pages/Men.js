@@ -9,8 +9,11 @@ import "./Men.css";
 import Navbar from "../Components/Navbar";
 import Footer from "../Components/Footer";
 import { MyContext } from "../App";
+import {  useNavigate } from "react-router-dom";
+
 
 const Men = () => {
+  const navigate = useNavigate();
   const { searchTerm, islogin, allproducts, carddata, Setcarddata } =
     useContext(MyContext); 
   const [duplicateData, setDuplicateData] = useState(allproducts);
@@ -37,11 +40,12 @@ const Men = () => {
 
   useEffect(() => {
     filterShoeData();
-  }, [searchTerm, filterShoeData]);
+  }, [searchTerm,filterShoeData]);
 
   const Addtocart = (itemToAdd) => {
     if (!islogin) {
       alert("Login to add shoes");
+      navigate("/login");
     } else {
       const existingItem = carddata.find((item) => item.id === itemToAdd.id);
 

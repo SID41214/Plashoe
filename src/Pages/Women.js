@@ -46,7 +46,7 @@ const Women = () => {
   
   useEffect(() => {
     filterShoeData();
-  }, [filterShoeData]);
+  }, [searchTerm,filterShoeData]);
   
 
   const { carddata, Setcarddata } = useContext(MyContext);

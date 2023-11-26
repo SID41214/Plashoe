@@ -1,73 +1,62 @@
-.login-container{
-    background-color:  #808080;
-    display: flex ;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    width: 100vw;
-    margin: auto;
+.login-container {
+  background-image: url("https://assets-global.website-files.com/622488277ab5ee818d179d9f/64470ce140beed1a68a4bec7_626079f8351eb056e307319e_amberjack_r1_MSP_4296-scaled.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
+
 .login-form {
-    width: 30%;
-    
-    padding: 20px;
-    border-radius: 5px;
-    background:rgba(0, 0, 0, 0.947);
-        color: white;
+  width: 30%;
+  padding: 20px;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  text-align: center;
+}
 
-  }
+.login-form input {
+  text-align: center;
+  background-color: #f0f0f0;
+  font-weight: 600;
+  height: 40px;
+  border: none;
+  border-radius: 20px;
+  margin-bottom: 15px;
+}
 
- 
- .login-span-btn{
-    background:black;
-   font-weight: 600;
-   border-radius: 8%;
-   text-decoration: none;
-   
+.login-buttons {
+  display: flex;
+  justify-content: center;
+}
 
-  }
-  .login-form input{
-    text-align: center;
-    background-color:  Gainsboro;
-    font: 600;
-    font-weight: 800;
-    height: 40px;
-    border: solid;
-    border-width: 2px 4px;
-    border-radius: 40px;
+.login-span-btn,
+.admin-link {
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 20px;
+  margin: 0 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  background-color: #333;
+  transition: background-color 0.3s, color 0.3s;
+}
 
-  }
-  .login-span-btn{
-    color: white;
-    text-decoration: none;
-    border: solid;
-    border-width: 2px 4px;
-    border-radius: 40px;
-    margin-left: 5px;
-    width: 80px;
-    text-align: center;
-    cursor: pointer;
-  }
- 
- 
-  .login-span-btn:hover{
-    background-color: white;
-    color: black;
-  }
-  .login-container button{
-    color: white;
-    text-decoration: none;
-    border: solid;
-    border-width: 2px 4px;
-    border-radius: 40px;
-    margin-left: 5px;
-    width: 80px;
-    text-align: center;
-    cursor: pointer;
-    background-color: black;
-  }
-  .login-container button:hover{
-    background-color: white;
-    color: black;
-  }
+.login-span-btn:hover,
+.admin-link:hover {
+  background-color: white;
+  color: #333;
+}
+
+.register-link {
+  color: white;
+  text-decoration: none;
+  margin-top: 10px;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}

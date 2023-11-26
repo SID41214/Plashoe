@@ -55,7 +55,9 @@ const Admin = () => {
                 fontSize: "20px",
                 fontWeight: "bolder",
                 margin: "15px",
-              }}
+                
+              }}onMouseEnter={(e) => (e.target.style.color = "black")}
+              onMouseLeave={(e) => (e.target.style.color = "white")}
             >
               <PersonIcon style={{ color: "white" }} /> Users
             </div>
@@ -71,7 +73,8 @@ const Admin = () => {
                 fontSize: "20px",
                 fontWeight: "bolder",
                 margin: "15px",
-              }}
+              }}onMouseEnter={(e) => (e.target.style.color = "black")}
+              onMouseLeave={(e) => (e.target.style.color = "white")}
             >
               <ViewHeadlineIcon style={{ color: "white" }} /> Products
             </div>
@@ -87,7 +90,8 @@ const Admin = () => {
                 fontSize: "20px",
                 fontWeight: "bolder",
                 margin: "15px",
-              }}
+              }}onMouseEnter={(e) => (e.target.style.color = "black")}
+              onMouseLeave={(e) => (e.target.style.color = "white")}
             >
               <MonetizationOnIcon style={{ color: "white" }} /> Revenue
             </div>
@@ -100,7 +104,8 @@ const Admin = () => {
                 fontSize: "20px",
                 fontWeight: "bolder",
                 margin: "15px",
-              }}
+              }}onMouseEnter={(e) => (e.target.style.color = "black")}
+              onMouseLeave={(e) => (e.target.style.color = "white")}
             >
               <HomeIcon style={{ color: "white" }} />
               Home

@@ -1,4 +1,6 @@
-import React, { useContext, useEffect, useMemo, useState } from "react";
+// CartItem.js
+
+import React, { useContext, useState } from "react";
 import styled from "styled-components";
 import { MyContext } from "../App";
 
@@ -25,39 +27,27 @@ const Decrement = styled.button`
 `;
 const Remove = styled.button``;
 
-const CartItem = ({ name, image, price, handleRemoveItem, id }) => {
-  const fixedPrice = useMemo(() => price, [price]);
+const CartItem = ({ name, image, price, id, updateTotalPrice }) => {
   const { carddata, Setcarddata } = useContext(MyContext);
-
   const [count, setCount] = useState(1);
 
-  // function UpadateData(id) {
-  //   const updatedCart = carddata.map((item) =>
-  //     Number(item.id).toString() === Number(id).toString()
-  //       ? { ...item, price: count * fixedPrice }
-  //       : item
-  //   );
+  const updateData = () => {
+    const updatedCart = carddata.map((item) =>
+      item.id === id ? { ...item, quantity: count } : item
+    );
+    Setcarddata(updatedCart);
+    updateTotalPrice(); // Update the total price in the parent component
+  };
 
-  //   Setcarddata(updatedCart);
-  // }
-  // useEffect(() => {
-  //   UpadateData(id);
-  // }, []);
-  useEffect(() => {
-    function UpadateData(id) {
-      const updatedCart = carddata.map((item) =>
-        Number(item.id).toString() === Number(id).toString()
-          ? { ...item, price: count * fixedPrice }
-          : item
-      );
-  
-      Setcarddata(updatedCart);
-    }
-    
-    UpadateData(id);
-  
-  }, [carddata, Setcarddata, count, fixedPrice, id]);
-  
+  const totalPrice = (price * count).toFixed(2);
+
+  const handleRemove = () => {
+    Setcarddata((prevCardData) => {
+      const updatedCardData = prevCardData.filter((item) => item.id !== id);
+      updateTotalPrice(); // Update the total price after removing the item
+      return updatedCardData;
+    });
+  };
 
   return (
     <Container>
@@ -65,14 +55,37 @@ const CartItem = ({ name, image, price, handleRemoveItem, id }) => {
       <Name>{name}</Name>
       <Price>${price.toFixed(2)}</Price>
       <CounterButton>
-        <Increment onClick={() => setCount(count + 1)}>+</Increment>
+        <Increment
+          onClick={() => {
+            setCount((prevCount) => {
+              const newCount = prevCount + 1;
+              updateData();
+              return newCount;
+            });
+          }}
+        >
+          +
+        </Increment>
         {count}
-        <Decrement onClick={() => count > 1 && setCount(count - 1)}>
+        <Decrement
+          onClick={() => {
+            setCount((prevCount) => {
+              const newCount = prevCount > 1 ? prevCount - 1 : prevCount;
+              updateData();
+              return newCount;
+            });
+          }}
+        >
           -
         </Decrement>
       </CounterButton>
+      <div>
+        <p>Total: ${totalPrice}</p>
+      </div>
       <Remove
-        onClick={() => handleRemoveItem(id)}
+        onClick={() => {
+          handleRemove();
+        }}
         style={{ background: "red", color: "white", fontSize: "20px" }}
       >
         Remove

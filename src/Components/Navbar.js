@@ -113,7 +113,7 @@ const Navbar = () => {
             </Link>
             <li>
               {" "}
-              <Link to="/register">
+              <Link to="/login">
                 <buttom>
                   <PersonIcon />
                 </buttom>{" "}
