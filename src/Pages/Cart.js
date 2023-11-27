@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 import CartItem from "../Components/CartItem";
 
 const Cart = () => {
-  const { carddata, Setcarddata } = useContext(MyContext);
+  const { carddata, Setcarddata ,setTotals} = useContext(MyContext);
   const [total, setTotal] = useState(0);
 
   const calculateTotalAmount = useCallback(() => {
@@ -59,7 +59,7 @@ const Cart = () => {
         <div style={{ background: "black", color: "white", display: "flex", justifyContent: "center", fontSize: "20px", fontWeight: "bolder" }}>
           <p>Total Price: ${total}</p>
           <Link to="/checkout">
-            <Button style={{ marginLeft: "350px", background: "green", color: "white", fontSize: "20px", fontWeight: "bolder" }}>
+            <Button style={{ marginLeft: "350px", background: "green", color: "white", fontSize: "20px", fontWeight: "bolder" }} onClick={()=> (setTotals(total))}>
               CHECK OUT
             </Button>
           </Link>

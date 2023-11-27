@@ -30,7 +30,7 @@ function App() {
   ]);
   const [searchTerm, setSearchTerm] = useState("");
   const [carddata, Setcarddata] = useState([]);
-  const [total, setTotal] = useState("");
+  const [total, setTotals] = useState("");//CHANGED HERE TO SET TOTALS
   const [islogin, setIslogin] = useState(false);
   const [allproducts,setAllproducts]=useState(AllshoeData);
   
@@ -42,7 +42,7 @@ function App() {
     carddata,
     Setcarddata,
     total,
-    setTotal,
+    setTotals,
     islogin,
     setIslogin,allproducts,setAllproducts
   };
